@@ -1,4 +1,4 @@
-# Scitok : Webscraping TikTok data for social science research
+# Scitok : Web Scraping TikTok Data for Social Science Research
 
 ## Project Description
 

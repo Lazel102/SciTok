@@ -1,0 +1,26 @@
+version: "3"
+services:
+
+  neo:
+    image: neo4j:latest
+    container_name: neo_db
+    ports:
+      - "7474:7474"
+      - "7687:7687"
+    volumes:
+      - ./neo4j/data:/var/lib/neo4j/data
+    env_file:
+      - .env
+  scraper:
+    build: .
+    volumes:
+      - ./:/code
+    depends_on:
+      - neo
+    env_file:
+      - .env
+    environment:
+      - MY_STARTURL = value
+    command: ./wait-for-it.sh -t 60 neo_db:7687 -- python main.py ${MY_STARTURL}
+networks:
+  default:

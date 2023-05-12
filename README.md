@@ -36,7 +36,7 @@ docker-compose up neo
 
 
 
-## How to use Scitok
+## How to use SciTok
 Scitok is especially designed for the purpose of social science research. Since network analysis is a growing field and especially fits to the analysis of social media the data is broad into the form of a graph of the following form:
 
 ![Scheme of the Data collected by Scitok](figs/Scheme.jpeg)

@@ -14,10 +14,10 @@ Running Scitok is simple with Docker. If Docker is not already installed on your
 
 ```
 #neo4j
-NEO4J_AUTH=<user>/<password>
+NEO4J_AUTH=neo4j/<password>
 DB_HOST=neo_db
 ```
-Ensure to replace <user> and <password> with your chosen credentials.
+Ensure to replace <password> with your chosen password.
 
 After this step with Docker running, you can start Scitok by executing the following command. Be sure to replace <https://www.tiktok.com/tag/example> with the TikTok URL you wish to initiate the scraping process with:
 ```

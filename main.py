@@ -5,8 +5,7 @@ from scrapy.utils.project import get_project_settings
 import sys
 
 if __name__ == '__main__':
-    #startURL = sys.argv[1]
-    startURL="https://www.tiktok.com/tag/lgbt"
+    startURL = sys.argv[1]
     setting = get_project_settings()
     process = CrawlerProcess(setting)
     process.crawl(HashTagCrawlSpider.HashtagCrawlSpider, startURL=startURL, count=3)

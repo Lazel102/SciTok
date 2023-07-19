@@ -43,9 +43,17 @@ Scitok is especially designed for the purpose of social science research. Since 
 
 This allows macro analysis of discourses on TikTok and insides throught the analysis of TikTok discourses from the macroperspective. GraphXR is an especially usefull tool to visualy explore the graph and to apply graph algorithms to the data.
 
-If you use this work for your research, please acknowledge it using this citation:
+## License 
+Shield: [![CC BY-NC-SA 4.0][cc-by-nc-sa-shield]][cc-by-nc-sa]
 
-DOI : https://doi.org/10.13140/RG.2.2.10710.11843
+This work is licensed under a
+[Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License][cc-by-nc-sa].
+
+[![CC BY-NC-SA 4.0][cc-by-nc-sa-image]][cc-by-nc-sa]
+
+[cc-by-nc-sa]: http://creativecommons.org/licenses/by-nc-sa/4.0/
+[cc-by-nc-sa-image]: https://licensebuttons.net/l/by-nc-sa/4.0/88x31.png
+[cc-by-nc-sa-shield]: https://img.shields.io/badge/License-CC%20BY--NC--SA%204.0-lightgrey.svg
 
 
 

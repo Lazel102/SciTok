@@ -19,6 +19,7 @@ class ScraperPipeline:
         authentification = os.environ.get("NEO4J_AUTH").split("/")
         config.DATABASE_URL = f'bolt://{authentification[0]}:{authentification[1]}@{db_host}:7687'
 
+
     def process_item(self, item, spider):
         post = neo4jConfig.Post.get_or_create({"video_url": item["video_url"]})[0]
         post.description = item.get("description","NA")

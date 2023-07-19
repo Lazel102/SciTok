@@ -8,6 +8,7 @@ from scrapy.loader import ItemLoader
 from scrapy.http import Request
 from Scraper import neo4jConfig
 from datetime import datetime
+import re
 
 #https://www.tiktok.com/tag/shifting
 #https://www.tiktok.com/@itstinacolada/video/7051319079558270214
@@ -35,19 +36,20 @@ class HashtagCrawlSpider(CrawlSpider):
         """
         itemLoader =ItemLoader(item=TikTokItem(),selector=response)
         consumeData = response.css("strong.edu4zum2::text").getall()
-        personalDetails = response.css("span.e17fzhrb2 span::text").getall()
-        music = response.css("h4.epjbyn0 a::text").get()
+        username = response.css('span.tiktok-1xccqfx-SpanNickName.e17fzhrb1::text').get()
+        date = self.extractDate(response.css("span.evv7pft3").get())
+        music = self.extractMusic(response)
         musicLink = "http://www.tiktok.com/"+ response.css("h4.epjbyn0 a").attrib["href"]
 
         itemLoader.add_css("userScreenname","span.e17fzhrb1")
-        itemLoader.add_value("username", self.parseListData(personalDetails,0))
+        itemLoader.add_value("username", username)
         itemLoader.add_css("description", "span.efbd9f0")
         itemLoader.add_value("video_url",response.url)
         itemLoader.add_css("hashtags", "strong.ejg0rhn2::text")
         itemLoader.add_value("nrLikes", self.parseListData(consumeData,0))
         itemLoader.add_value("nrComments",self.parseListData(consumeData,1))
         itemLoader.add_value("nrForwarded", self.parseListData(consumeData,2))
-        itemLoader.add_value("date", self.parseListData(personalDetails,2))
+        itemLoader.add_value("date", date)
         itemLoader.add_value("music", music)
         itemLoader.add_value("musicLink",musicLink)
         """
@@ -75,6 +77,16 @@ class HashtagCrawlSpider(CrawlSpider):
         yield Request("http://www.tiktok.com/"+"@"+item["userScreenname"])
         yield Request(musicLink)
         yield item
+
+    def extractDate(self, dateString):
+        date = re.search(r'<span>(\d+-\d+)</span>', dateString).group(1)
+        return date
+    def extractMusic(self, res):
+        for pos in ["h4.epjbyn0 div::text","h4.epjbyn0 a::text"]:
+            music = res.css(pos).get()
+            if music is not None:
+                return music
+
 
 
     def parseListData(self,list,index ):

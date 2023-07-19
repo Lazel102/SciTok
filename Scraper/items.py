@@ -31,9 +31,14 @@ def toDate(dateString):
     for i in range(8):
         if str(i)+"d" in dateString:
             return datetime.today()- timedelta(days=int(i))
+    if len(dateString) <= 6:
+        # If year is not included, assume it is 2023
+        dateString += "-2023"
 
-    datetime_object = datetime.strptime(dateString, '%Y-%m-%d').date()
-    return datetime_object
+    # Parse the date string into a datetime object
+    date_object = datetime.strptime(dateString, "%m-%d-%Y").date()
+
+    return date_object
 class TikTokItem(scrapy.Item):
     # define the fields for your item here like:
 

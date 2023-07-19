@@ -10,12 +10,10 @@ Running Scitok is simple with Docker. If Docker is not already installed on your
 
 1. Clone this repository.
 2. Create a new file named .env in the root directory of the cloned repository.
-3. Add the following content to the .env file:
+3. Create a .env file in which you configure your credentials for the database by using the following command in your terminal while being in the project directory :
 
 ```
-#neo4j
-NEO4J_AUTH=neo4j/<password>
-DB_HOST=neo_db
+echo -e "NEO4J_AUTH=neo4j/<password>\nDB_HOST=neo_db" > .env
 ```
 Ensure to replace <password> with your chosen password.
 
@@ -24,7 +22,7 @@ After this step with Docker running, you can start Scitok by executing the follo
 MY_STARTURL="<https://www.tiktok.com/tag/example>" docker-compose up  
 ```
 
-Next, navigate to http://localhost:7474 in your preferred web browser or even through the Neo4j Browser. The authentication details specified in the .env file can be used to access the data. For a brief introduction on how to use a Neo4j database, refer to this guide. To confirm if everything is working, execute the following in one of the input fields:
+Next, navigate to http://localhost:7474 in your preferred web browser or even through the Neo4j Browser. The authentication details specified in the .env file can be used to access the data. For a brief introduction to the usage of a Neo4j database, refer to [this guide](https://www.google.com/search?client=safari&rls=en&q=neo4j+tutorial+cypher&ie=UTF-8&oe=UTF-8). To confirm if everything is working, execute the following in one of the input fields:
 
 ```
 Match(n) return(n)

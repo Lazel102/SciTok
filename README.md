@@ -21,7 +21,7 @@ Ensure to replace <password> with your chosen password.
 
 After this step with Docker running, you can start Scitok by executing the following command. Be sure to replace <https://www.tiktok.com/tag/example> with the TikTok URL you wish to initiate the scraping process with:
 ```
-MY_STARTURL = "<https://www.tiktok.com/tag/example>" docker-compose up  
+MY_STARTURL="<https://www.tiktok.com/tag/example>" docker-compose up  
 ```
 
 Next, navigate to http://localhost:7474 in your preferred web browser or even through the Neo4j Browser. The authentication details specified in the .env file can be used to access the data. For a brief introduction on how to use a Neo4j database, refer to this guide. To confirm if everything is working, execute the following in one of the input fields:
